@@ -1,0 +1,27 @@
+1711128810368	geckodriver	INFO	Listening on 127.0.0.1:59767
+xdg-settings: $BROWSER is set and can't be changed with xdg-settings
+1711128811208	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr ... =3" "--remote-debugging-port" "41967" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilelEV3SY"
+xdg-settings: $BROWSER is set and can't be changed with xdg-settings
+*** You are running in headless mode.
+[GFX1-]: glxtest: Unable to open a connection to the X server
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+1711129746150	geckodriver	INFO	Listening on 127.0.0.1:39889
+xdg-settings: $BROWSER is set and can't be changed with xdg-settings
+1711129747212	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr ... =3" "--remote-debugging-port" "60259" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofile2ATLlO"
+xdg-settings: $BROWSER is set and can't be changed with xdg-settings
+*** You are running in headless mode.
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+1711129960564	geckodriver	INFO	Listening on 127.0.0.1:33369
+xdg-settings: $BROWSER is set and can't be changed with xdg-settings
+1711129961452	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr ... =3" "--remote-debugging-port" "41643" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileCRjSC4"
+xdg-settings: $BROWSER is set and can't be changed with xdg-settings
+*** You are running in headless mode.
+[GFX1-]: glxtest: Unable to open a connection to the X server
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+1711130411036	geckodriver	INFO	Listening on 127.0.0.1:37907
+xdg-settings: $BROWSER is set and can't be changed with xdg-settings
+1711130411892	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr ... =3" "--remote-debugging-port" "56105" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileP7b4XT"
+xdg-settings: $BROWSER is set and can't be changed with xdg-settings
+*** You are running in headless mode.
+[GFX1-]: glxtest: Unable to open a connection to the X server
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt

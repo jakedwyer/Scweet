@@ -13,6 +13,7 @@ import datetime
 import pandas as pd
 import platform
 from selenium.webdriver.common.keys import Keys
+import json
 # import pathlib
 
 from selenium.webdriver.support.wait import WebDriverWait
@@ -119,41 +120,50 @@ def get_data(card, save_images=False, save_dir=None):
     return tweet
 
 
+import logging
+
 def init_driver(headless=True, proxy=None, show_images=False, option=None, firefox=False, env=None):
-    """ initiate a chromedriver or firefoxdriver instance
-        --option : other option to add (str)
-    """
+    logging.debug("Initializing driver: headless=%s, proxy=%s, show_images=%s, option=%s, firefox=%s", headless, proxy, show_images, option, firefox)
+    try:
+        if firefox:
+            options = FirefoxOptions()
+            driver_path = geckodriver_autoinstaller.install()
+        else:
+            options = ChromeOptions()
+            driver_path = chromedriver_autoinstaller.install()
+            options.add_argument('--headless')
+            options.add_argument('--no-sandbox')
+            options.add_argument('--disable-dev-shm-usage')
 
-    if firefox:
-        options = FirefoxOptions()
-        driver_path = geckodriver_autoinstaller.install()
-    else:
-        options = ChromeOptions()
-        driver_path = chromedriver_autoinstaller.install()
+        if headless is True:
+            options.headless = True
+            options.add_argument('--disable-gpu')
+        else:
+            options.headless = False
+        options.add_argument('log-level=3')
 
-    if headless is True:
-        print("Scraping on headless mode.")
-        options.add_argument('--disable-gpu')
-        options.headless = True
-    else:
-        options.headless = False
-    options.add_argument('log-level=3')
-    if proxy is not None:
-        options.add_argument('--proxy-server=%s' % proxy)
-        print("using proxy : ", proxy)
-    if show_images == False and firefox == False:
-        prefs = {"profile.managed_default_content_settings.images": 2}
-        options.add_experimental_option("prefs", prefs)
-    if option is not None:
-        options.add_argument(option)
+        if proxy is not None:
+            options.add_argument('--proxy-server=%s' % proxy)
+        
+        if show_images == False and firefox == False:
+            prefs = {"profile.managed_default_content_settings.images": 2}
+            options.add_experimental_option("prefs", prefs)
+        
+        if option is not None:
+            options.add_argument(option)
 
-    if firefox:
-        driver = webdriver.Firefox(options=options, executable_path=driver_path)
-    else:
-        driver = webdriver.Chrome(options=options, executable_path=driver_path)
-
-    driver.set_page_load_timeout(100)
-    return driver
+        logging.debug("Driver options set. Initializing WebDriver.")
+        if firefox:
+            driver = webdriver.Firefox(options=options, executable_path=driver_path)
+        else:
+            driver = webdriver.Chrome(options=options, executable_path=driver_path)
+        
+        driver.get("https://www.twitter.com")
+        logging.info("WebDriver initialized and navigated to Twitter.")
+        return driver
+    except Exception as e:
+        logging.error("An error occurred during WebDriver initialization: %s", str(e))
+        raise
 
 
 def log_search_page(driver, since, until_local, lang, display_type, words, to_account, from_account, mention_account,
